@@ -1,0 +1,75 @@
+.authFormContainer {
+  width: 38rem;
+  margin: 0 auto;
+  border: 1px solid #656565;
+  border-radius: 5px;
+  padding: 3rem;
+}
+
+.title {
+  margin: 0;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.form {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.form label {
+  color: #656565;
+}
+
+.input {
+  padding: 1rem 1rem;
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+  width: 100%;
+  border-radius: 5px;
+  background-color: transparent;
+  color: white;
+  border: 1px solid #656565;
+  outline: none;
+}
+
+.input::placeholder {
+  color: #656565;
+}
+
+.input:focus {
+  border: 1px solid white;
+}
+
+.btn {
+  border-radius: 5px;
+  width: 100%;
+  height: 4rem;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+  color: white;
+  border: 1px solid #656565;
+  font-weight: bold;
+}
+
+.btn:hover {
+  border: 1px solid white;
+}
+
+.message {
+  font-weight: bold;
+  text-align: center;
+}
+
+.footerMsg {
+  text-align: center;
+}
+
+.footerMsg a {
+  color: #0070f3;
+}
+
+.footerMsg a:hover {
+  text-decoration: underline;
+}
