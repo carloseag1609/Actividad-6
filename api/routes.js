@@ -16,7 +16,7 @@ router.post("/login", async (req, res) => {
     if (!user) {
       return res.status(404).send("Wrong credentials");
     } else {
-      if (bcrypt.compareSync(passwsord, user.password)) {
+      if (bcrypt.compareSync(password, user.password)) {
         return res.status(200).send({
           user: {
             id: user.id,
@@ -28,6 +28,7 @@ router.post("/login", async (req, res) => {
       }
     }
   } catch (error) {
+    console.log(error);
     return res.status(500).send(error);
   }
 });
