@@ -14,7 +14,7 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const resp = await axios.post("http://localhost:3002/api/login", user);
+      const resp = await axios.post("http://localhost:3001/api/login", user);
       if (resp.status === 200) {
         setMessage("Welcome");
       }

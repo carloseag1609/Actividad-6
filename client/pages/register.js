@@ -11,16 +11,20 @@ function Register() {
     password: "",
   });
 
-  const handleRegister = async (e) => {
+  const handleRegister = (e) => {
     e.preventDefault();
-    try {
-      const resp = await axios.post("http://localhost:3002/api/register", user);
-      if (resp.status === 200) {
-        setMessage(resp.data);
-      }
-    } catch (error) {
-      console.log(error);
-    }
+    axios
+      .post("http://localhost:3001/api/register", user)
+      .then((resp) => {
+        if (resp.status === 200) {
+          setMessage(resp.data);
+        }
+      })
+      .catch((error) => {
+        if (error.response) {
+          setMessage(error.response.data);
+        }
+      });
   };
 
   const handleInputChange = (e) => {
