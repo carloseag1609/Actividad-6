@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 const router = require("express").Router();
-const User = require("./index");
+const User = require("./User");
 
 router.get("/test", (req, res) => {
   return res.send("Test");
@@ -38,9 +38,14 @@ router.post("/register", async (req, res) => {
     if (!email || !password) {
       return res.status(400).send();
     }
-    const hashedPassword = bcrypt.hashSync(password, 10);
-    const user = await User.create({ email, password: hashedPassword });
-    return res.status(200).send("User registered");
+    const existsUser = await User.findOne({ where: { email } });
+    if (!existsUser) {
+      const hashedPassword = bcrypt.hashSync(password, 10);
+      const user = await User.create({ email, password: hashedPassword });
+      return res.status(200).send("User registered");
+    } else {
+      return res.status(409).send("Email already in use");
+    }
   } catch (error) {
     return res.status(500).send(error);
   }
