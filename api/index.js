@@ -1,7 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
-const { Sequelize, DataTypes } = require("sequelize");
+const { Sequelize } = require("sequelize");
 const routes = require("./routes");
 const app = express();
 
@@ -10,8 +10,6 @@ const dbname = process.env.DBNAME;
 const dbuser = process.env.DBUSER;
 const dbpassword = process.env.DBPASSWORD;
 const dbhost = process.env.DBHOST;
-
-console.log(dbname);
 
 const sequelize = new Sequelize(dbname, dbuser, dbpassword, {
   host: dbhost,
